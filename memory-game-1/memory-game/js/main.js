@@ -1,5 +1,6 @@
-console.log("Up and running!");
+console.log("Up and running!"); //ensures javascript is running
 
+//loops through cards and sets images and click listeners for play
 function createBoard(){
 	for (let i = 0; i < cards.length; i++) {
     let cardElement = document.createElement('img');
@@ -10,7 +11,7 @@ function createBoard(){
 }
 
 }
-
+//defining the cards
 const cards = [
 {
 rank: "queen",
@@ -33,7 +34,7 @@ suit: "diamonds",
 cardImage: "images/king-of-diamonds.png"
 }
 ];
-
+//determines if a match was found
 let cardsInPlay = [];
 function checkForMatch(){
 	if (cardsInPlay[0] === cardsInPlay[1]) {
@@ -41,6 +42,7 @@ function checkForMatch(){
 } else {
   alert("Sorry, try again.");
 }
+//tells console what the user flipped and displays the face of the card
 }
 function flipCard(){
 	cardId = this.getAttribute('data-id');
@@ -50,9 +52,10 @@ function flipCard(){
 	cardsInPlay.push(cards[cardId].rank);
 	
 	this.setAttribute('src', cards[cardId].cardImage);
-
+//checks for match if 2 cards have been clicked
 	if (cardsInPlay.length === 2) {
 		checkForMatch();
 	}
 }
+//calls create board to start game
 createBoard();
