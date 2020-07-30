@@ -1,13 +1,15 @@
 console.log("Up and running!"); //ensures javascript is running
 
+
+let cardElement;
 //loops through cards and sets images and click listeners for play
 function createBoard(){
 	for (let i = 0; i < cards.length; i++) {
-    let cardElement = document.createElement('img');
-    cardElement.setAttribute('src', 'images/back.png');
+    cardElement = document.createElement('img');
+   cardElement.setAttribute('src', 'images/back.png');
     cardElement.setAttribute('data-id', i);
     cardElement.addEventListener('click', flipCard);
-    document.getElementById('game-board').appendChild(cardElement);
+   document.getElementById('game-board').appendChild(cardElement);
 }
 
 }
@@ -59,3 +61,26 @@ function flipCard(){
 }
 //calls create board to start game
 createBoard();
+
+function resetCards() {
+	document.location.reload(true)
+}
+
+//First attempt at reset button
+	//console.log("working");
+	 //  cardsInPlay.length = 0;
+	 //  cards.length = 0;
+
+	   //document.getElementById('game-board').removeChild(cardElement);
+	   //for (let c = 0; c < 5; c++) {
+	 // document.getElementById('game-board').removeChild(cardElement);
+    //cardElement = document.createElement('img');
+   //cardElement.setAttribute('src', 'images/back.png');
+   // cardElement.setAttribute('data-id', c);
+   // cardElement.addEventListener('click', flipCard);
+   //document.getElementById('game-board').insertBefore(cardElement, document.getElementById('game-board').firstChild);
+	//}
+  // };
+  
+	const button = document.querySelector('button');
+   button.addEventListener("click", resetCards);
